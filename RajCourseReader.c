@@ -1,15 +1,6 @@
 #ifndef _HW2_H
 #define _HW2_H
 
-/** 
-* Loads student and course data from input file and allows user to query the data.
-*
-* Completion time: 8 hours
-* 
-* @author Muhammad Raj, Ruben Acuna
-* @version October 18, 2021
-*
-*/
 
 ////////////////////////////////////////////////////////////////////////////////
 // INCLUDES
@@ -61,7 +52,7 @@ int numCourses, numStudents;
 ////////////////////////////////////////////////////////////////////////////////
 //FORWARD DECLARATIONS
 
-// the following should be used to read student/course data in from the file 
+// the following are used to read student/course data in from the file 
 void readFile(char* filename);
 void readString(FILE* file, char** dst, int max_length);
 Student* readStudents(FILE* file);
@@ -69,7 +60,7 @@ Course* readCourses(FILE* file);
 Assign* readAssigns(FILE* file, int numAssigns);
 ScoreStruct** readScores(FILE* file, int numAssigns);
 
-// the following should be used to free all heap data allocated during the programs runtime
+// the following are used to free all heap data allocated during the programs runtime
 // and handle dangling pointers
 void terminate();
 void studentsDestructor();
@@ -77,20 +68,18 @@ void coursesDestructor();
 void assignsDestructor(Assign** assigns, int numAssign);
 void scoresDestructor(ScoreStruct*** scores, int numAssigns);
 
-// the following should be used to cleanly print the data used in the program 
+// the following are used to cleanly print the data used in the program 
 void printStudents();
 void printAssigns(Assign* assigns, int numAssigns);
 void printGrades(ScoreStruct** scores, int numAssigns);
 void printCourse(Course course);
 
-// the following are mostly complete functions that define and 
-// control the CLI menu associated with the program
+// the following are used to implement user interface
 void mainMenu();
 void mainMenuBranch(int option);
 void subMenu(Course course);
 void subMenuBranch(int option, Course course);
 
-// these are the 'special' functions that you are being asked to implement
 void studentMenu(Course course);
 void getStudentScores(Course course, int studentNo);
 void assignmentMenu(Course course);
